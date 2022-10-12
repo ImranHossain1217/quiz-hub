@@ -17,7 +17,7 @@ function App() {
         {path:'/home',element:<Home></Home>},
         {path:'/topics',loader:()=> fetch('https://openapi.programming-hero.com/api/quiz'), element:<Topics></Topics>},
         {path:'quiz/:quizId', loader: ({params})=> fetch(`https://openapi.programming-hero.com/api/quiz/${params.quizId}`),element:<Qustion></Qustion>},
-        {path:'/statics',element:<Statics></Statics>},
+        {path:'/statics',loader:()=> fetch('https://openapi.programming-hero.com/api/quiz'), element:<Statics></Statics>},
         {path:'/blog',element:<Blog></Blog>}
       ]
 
