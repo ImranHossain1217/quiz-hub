@@ -15,9 +15,9 @@ const Statics = () => {
   return (
     <div className="bg-blue-200 pt-5 pb-10">
       <h1 className="text-3xl m-5">Statics Reachart</h1>
-      <div className="w-1/2 mx-auto border p-5 drop-shadow-lg bg-white rounded-md">
+      <div className="md:w-2/5 md:mx-auto border p-5 drop-shadow-lg bg-white rounded-md">
         <LineChart
-          width={600}
+          width={450}
           height={300}
           data={data}
           margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
