@@ -1,10 +1,29 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header';
+import Blog from './components/Blog';
+import Home from './components/Home';
+import Main from './components/Main';
+import Statics from './components/Statics';
+import Topics from './components/Topics';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path:'/',
+      element:<Main></Main>,
+      children:[
+        {path:'/',element:<Home></Home>},
+        {path:'/home',element:<Home></Home>},
+        {path:'/topics',element:<Topics></Topics>},
+        {path:'/statics',element:<Statics></Statics>},
+        {path:'/blog',element:<Blog></Blog>}
+      ]
+
+    }
+  ])
   return (
     <div className="App">
-      <Header></Header>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
