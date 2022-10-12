@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { EyeIcon } from "@heroicons/react/24/solid";
 
 const Qustion = () => {
   const qustions = useLoaderData();
@@ -18,6 +19,14 @@ const Qustion = () => {
       });
     }
   };
+
+  const handleAnswer = (answer) => {
+    toast.success(answer.correctAnswer, {
+      position: "top-center",
+      theme: "colored",
+    });
+  };
+
   return (
     <div>
       <h1 className="mt-5 text-3xl">Start Your Quiz</h1>
@@ -29,6 +38,7 @@ const Qustion = () => {
               className="border w-8/12 m-5 p-3 mx-auto bg-blue-200 rounded"
             >
               <h3 className="md:text-xl mb-2">Qustion: {qustion.question}</h3>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-2/3 mx-auto">
                 {qustion.options.map((option) => (
                   <p
@@ -40,6 +50,10 @@ const Qustion = () => {
                 ))}
                 <ToastContainer></ToastContainer>
               </div>
+              <EyeIcon
+                onClick={() => handleAnswer(qustion)}
+                className="h-6 w-6 text-blue-900"
+              />
             </div>
           );
         })}
